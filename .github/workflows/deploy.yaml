@@ -33,4 +33,5 @@ jobs:
           ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku git:sync --build anotherwebservice" https://github.com/KarmaComputing/anotherwebservice.git main
           ssh dokku@${{ secrets.DOKKU_HOST }} -C dokku domains:set anotherwebservice anotherwebservice.com
           ssh dokku@${{ secrets.DOKKU_HOST }} -C dokku letsencrypt:enable anotherwebservice
+          ssh dokku@${{ secrets.DOKKU_HOST }} -C "dokku letsencrypt:cron-job --add"
 
